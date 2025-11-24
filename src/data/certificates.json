@@ -1,0 +1,77 @@
+[
+    {
+        "title": "Full Stack Web Development",
+        "link": "#",
+        "thumbnail": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+        "title": "React Native Specialization",
+        "link": "#",
+        "thumbnail": "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+        "title": "Advanced CSS and Sass",
+        "link": "#",
+        "thumbnail": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+        "title": "JavaScript Algorithms",
+        "link": "#",
+        "thumbnail": "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+        "title": "UI/UX Design Fundamentals",
+        "link": "#",
+        "thumbnail": "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+        "title": "Node.js Backend Development",
+        "link": "#",
+        "thumbnail": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+        "title": "Python for Data Science",
+        "link": "#",
+        "thumbnail": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+        "title": "Machine Learning A-Z",
+        "link": "#",
+        "thumbnail": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+        "title": "Docker & Kubernetes",
+        "link": "#",
+        "thumbnail": "https://images.unsplash.com/photo-1605745341117-958341da4b71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+        "title": "AWS Certified Cloud Practitioner",
+        "link": "#",
+        "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+        "title": "Agile Project Management",
+        "link": "#",
+        "thumbnail": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+        "title": "Cybersecurity Basics",
+        "link": "#",
+        "thumbnail": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+        "title": "Google Analytics Certification",
+        "link": "#",
+        "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+        "title": "SEO Mastery",
+        "link": "#",
+        "thumbnail": "https://images.unsplash.com/photo-1571786256017-aee7a0c009b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+        "title": "Digital Marketing Strategy",
+        "link": "#",
+        "thumbnail": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    }
+]
