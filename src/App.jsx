@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ScrollToHashElement from './components/ScrollToHashElement';
 import { HelmetProvider } from 'react-helmet-async';
 import Preloader from './components/Preloader';
 import Hero2 from './sections/Hero2';
@@ -18,6 +19,7 @@ function App() {
   return (
     <HelmetProvider>
       <Router>
+        <ScrollToHashElement />
         <Preloader onComplete={() => setIsLoading(false)} />
 
         <div

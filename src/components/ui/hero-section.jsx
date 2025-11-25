@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import SparkleButton from './SparkleButton';
 import ContactButton from './ContactButton';
 import AnimatedLogo from '../../components/AnimatedLogo';
@@ -118,9 +118,9 @@ export default function HeroSection() {
                             { name: 'Projects', href: '/projects' },
                             { name: 'Certificates', href: '/certificates' }
                         ].map((item) => (
-                            <a key={item.name} href={item.href} className="hover:text-[#f0b383] transition-colors duration-300">
+                            <Link key={item.name} to={item.href} className="hover:text-[#f0b383] transition-colors duration-300">
                                 {item.name}
-                            </a>
+                            </Link>
                         ))}
                     </motion.div>
 
@@ -155,9 +155,9 @@ export default function HeroSection() {
                         { name: 'Certificates', href: '/certificates' },
                         { name: 'Contact', href: '/#contact' }
                     ].map((item) => (
-                        <a key={item.name} href={item.href} onClick={() => setMenuOpen(false)} className="text-2xl font-medium text-gray-800 hover:text-[#f0b383]">
+                        <Link key={item.name} to={item.href} onClick={() => setMenuOpen(false)} className="text-2xl font-medium text-gray-800 hover:text-[#f0b383]">
                             {item.name}
-                        </a>
+                        </Link>
                     ))}
                 </div>
 
