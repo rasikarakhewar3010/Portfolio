@@ -1,77 +1,63 @@
 [
     {
-        "title": "Full Stack Web Development",
-        "link": "#",
-        "thumbnail": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+        "title": "AI &ML Workshop At Bits Philani Hyd",
+        "link": "https://drive.google.com/file/d/1Cu_6QAfhPzwWJOgJcfxHl4NBfLw6j2fj/view?usp=drive_link",
+        "thumbnail": "/certificates/AI &ML Workshop.png"
     },
     {
-        "title": "React Native Specialization",
-        "link": "#",
-        "thumbnail": "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+        "title": "Intel unnati training",
+        "link": "https://drive.google.com/file/d/1XOdAgyfHzccyOy3FHRYBQDlB11aP3Oqk/view?usp=drive_link",
+        "thumbnail": "/certificates/Intel unnati training.png"
     },
     {
-        "title": "Advanced CSS and Sass",
-        "link": "#",
-        "thumbnail": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+        "title": "Intel unnati participation Generative AI Solutions",
+        "link": "https://drive.google.com/file/d/16-_Obb7KU8fW_6a6EnGyavIFbpGrSZP-/view?usp=drive_link",
+        "thumbnail": "/certificates/Intel Unnati Participation.png"
     },
     {
-        "title": "JavaScript Algorithms",
-        "link": "#",
-        "thumbnail": "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+        "title": "Web Development",
+        "link": "https://drive.google.com/file/d/1FgUEHKU92_amYADjKo7DcV-32TKScIvj/view?usp=drive_link",
+        "thumbnail": "/certificates/Infosys web dev.png"
     },
     {
         "title": "UI/UX Design Fundamentals",
-        "link": "#",
-        "thumbnail": "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+        "link": "https://drive.google.com/file/d/1U1b_WqiroXY4O31jLJR5A1xzE3EAg-Ap/view?usp=sharing",
+        "thumbnail": "/certificates/UIandUX.jpg"
     },
     {
-        "title": "Node.js Backend Development",
-        "link": "#",
-        "thumbnail": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+        "title": "Node.js",
+        "link": "https://drive.google.com/file/d/131INhy13h_Qe7eSqyCu-p4xw-Tl5hjcM/view?usp=drive_link",
+        "thumbnail": "/certificates/Infosys node.png"
     },
     {
-        "title": "Python for Data Science",
-        "link": "#",
-        "thumbnail": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+        "title": "Python",
+        "link": "https://drive.google.com/file/d/1a3ZF0EPWzD5bQumL2pTU_yIvlZZALfwf/view?usp=drive_link",
+        "thumbnail": "/certificates/NPTEL python.png"
     },
     {
-        "title": "Machine Learning A-Z",
-        "link": "#",
-        "thumbnail": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+        "title": "Frontend Workshop At MGM",
+        "link": "https://drive.google.com/file/d/1QMxP_JqlrECaOVs-3KkgMwjUNNd2klL4/view?usp=sharing",
+        "thumbnail": "/certificates/MGM frontend.png"
     },
     {
-        "title": "Docker & Kubernetes",
-        "link": "#",
-        "thumbnail": "https://images.unsplash.com/photo-1605745341117-958341da4b71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+        "title": "Cloud Compution",
+        "link": "https://drive.google.com/file/d/1lQZN6_CrHFv8X4EYwEJuqh2Gy-ckwHgN/view?usp=sharing",
+        "thumbnail": "/certificates/NPTEL CC.png"
     },
     {
-        "title": "AWS Certified Cloud Practitioner",
-        "link": "#",
-        "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+        "title": "Data Base management System",
+        "link": "https://drive.google.com/file/d/1egHPpOyZo8ObYBA55LloZx4jBbHc-_YX/view?usp=sharing",
+        "thumbnail": "/certificates/NPTEL DBMS.png"
     },
     {
-        "title": "Agile Project Management",
-        "link": "#",
-        "thumbnail": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+        "title": "Infosys Java",
+        "link": "https://drive.google.com/file/d/1E_WZf9QkE3X6aYlQzL7Y01KCOdv4xKz1/view?usp=sharing",
+        "thumbnail": "/certificates/Infosys Java.png"
     },
     {
-        "title": "Cybersecurity Basics",
-        "link": "#",
-        "thumbnail": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-    },
-    {
-        "title": "Google Analytics Certification",
-        "link": "#",
-        "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-    },
-    {
-        "title": "SEO Mastery",
-        "link": "#",
-        "thumbnail": "https://images.unsplash.com/photo-1571786256017-aee7a0c009b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-    },
-    {
-        "title": "Digital Marketing Strategy",
-        "link": "#",
-        "thumbnail": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+        "title": "CSS",
+        "link": "https://drive.google.com/file/d/15_3bYTVOI8A1zZh6wRSKNXCWJUPDcQGL/view?usp=sharing",
+        "thumbnail": "/certificates/CSS.png"
     }
+   
 ]

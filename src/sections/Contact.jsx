@@ -131,7 +131,7 @@ const demoIcons = [
 const Contact = () => {
     return (
         <FloatingIconsHero icons={demoIcons} className="min-h-[800px]">
-            <div className="bg-white/40 backdrop-blur-xl border border-white/50 rounded-2xl p-6 md:p-8 shadow-2xl max-w-2xl mx-auto relative z-20">
+            <div id="contact" className="bg-white/40 backdrop-blur-xl border border-white/50 rounded-2xl p-6 md:p-8 shadow-2xl max-w-2xl mx-auto relative z-20">
                 <div className="text-center mb-6">
                     <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-2 text-[#0f172a]">
                         Contact <span className="text-[#f7bea7]">Me</span>

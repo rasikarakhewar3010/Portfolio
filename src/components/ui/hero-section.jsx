@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import SparkleButton from './SparkleButton';
 import ContactButton from './ContactButton';
 import AnimatedLogo from '../../components/AnimatedLogo';
@@ -9,6 +10,7 @@ import ResumeDownloadButton from '../../components/ResumeDownloadButton';
 
 export default function HeroSection() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const navigate = useNavigate();
     const { scrollY } = useScroll();
     const y1 = useTransform(scrollY, [0, 500], [0, 200]);
     const y2 = useTransform(scrollY, [0, 500], [0, -150]);
@@ -109,9 +111,15 @@ export default function HeroSection() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="hidden md:flex items-center gap-10 font-medium text-gray-600"
                     >
-                        {['Home', 'About', 'Skills', 'Projects', 'Certificates'].map((item) => (
-                            <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-[#f0b383] transition-colors duration-300">
-                                {item}
+                        {[
+                            { name: 'Home', href: '/' },
+                            { name: 'About', href: '/#about' },
+                            { name: 'Skills', href: '/#skills' },
+                            { name: 'Projects', href: '/projects' },
+                            { name: 'Certificates', href: '/certificates' }
+                        ].map((item) => (
+                            <a key={item.name} href={item.href} className="hover:text-[#f0b383] transition-colors duration-300">
+                                {item.name}
                             </a>
                         ))}
                     </motion.div>
@@ -122,7 +130,7 @@ export default function HeroSection() {
                         transition={{ duration: 0.8 }}
                         className="hidden md:block"
                     >
-                        <ContactButton onClick={() => { }} />
+                        <ContactButton onClick={() => navigate('/#contact')} />
                     </motion.div>
 
                     {/* Mobile Menu Button */}
@@ -139,9 +147,16 @@ export default function HeroSection() {
                     <button onClick={() => setMenuOpen(false)} className="absolute top-6 right-6 text-gray-800">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                     </button>
-                    {['Home', 'About', 'Skills', 'Projects', 'Certificates', 'Contact'].map((item) => (
-                        <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)} className="text-2xl font-medium text-gray-800 hover:text-[#f0b383]">
-                            {item}
+                    {[
+                        { name: 'Home', href: '/' },
+                        { name: 'About', href: '/#about' },
+                        { name: 'Skills', href: '/#skills' },
+                        { name: 'Projects', href: '/projects' },
+                        { name: 'Certificates', href: '/certificates' },
+                        { name: 'Contact', href: '/#contact' }
+                    ].map((item) => (
+                        <a key={item.name} href={item.href} onClick={() => setMenuOpen(false)} className="text-2xl font-medium text-gray-800 hover:text-[#f0b383]">
+                            {item.name}
                         </a>
                     ))}
                 </div>
@@ -179,7 +194,7 @@ export default function HeroSection() {
 
                         <SparkleButton
                             className="!bg-white !text-gray-800 border border-gray-200 hover:!border-transparent"
-                            onClick={() => window.location.href = '/projects'}
+                            onClick={() => navigate('/projects')}
                         >
                             <span>View Projects</span>
                             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
