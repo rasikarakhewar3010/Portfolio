@@ -11,8 +11,12 @@ const skillsData = [
         items: ["React.js", "Redux", "HTML5", "CSS3", "Tailwind", "Bootstrap", "Three.js"]
     },
     {
+        category: "Backend And Database",
+        items: ["Node.js", "Express.js", "MongoDB", "MySQL", "Supabase"]
+    },
+    {
         category: "Tools",
-        items: ["VS Code", "Cloudinary", "Git", "GitHub", "Render"]
+        items: ["VS Code", "Cloudinary", "Git", "GitHub", "Render", "Vercel"]
     },
     {
         category: "Concepts",
