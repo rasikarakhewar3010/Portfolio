@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import ProjectCard from '../components/ui/ProjectCard';
 import projectsData from '../data/projects.json';
+import SEO from '../components/SEO';
 
 const AllProjects = () => {
     // Scroll to top on mount
@@ -12,6 +13,11 @@ const AllProjects = () => {
 
     return (
         <div className="min-h-screen w-full bg-[#fffaf5] relative">
+            <SEO
+                title="All Projects"
+                description="Explore the complete portfolio of Rasika Rakhewar's web development and AI projects."
+                url="https://rasikarakhewar.vercel.app/projects"
+            />
             {/* Header */}
             <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-16 lg:px-24 py-20">
                 <div className="flex flex-col md:flex-row items-center justify-between mb-16 gap-6">

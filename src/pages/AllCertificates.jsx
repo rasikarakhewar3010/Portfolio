@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import certificatesData from '../data/certificates.json';
+import SEO from '../components/SEO';
 
 const CertificateCard = ({ certificate, index }) => {
     return (
@@ -56,6 +57,11 @@ const AllCertificates = () => {
 
     return (
         <div className="min-h-screen w-full bg-[#fffaf5] relative overflow-hidden">
+            <SEO
+                title="Certifications"
+                description="Professional certifications and achievements of Rasika Rakhewar."
+                url="https://rasikarakhewar.vercel.app/certificates"
+            />
             {/* Background Elements */}
             <div className="absolute inset-0 w-full h-full pointer-events-none">
                 <motion.div

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Preloader from './components/Preloader';
 import Hero2 from './sections/Hero2';
 import About from './sections/About';
@@ -15,30 +16,32 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <Router>
-      <Preloader onComplete={() => setIsLoading(false)} />
+    <HelmetProvider>
+      <Router>
+        <Preloader onComplete={() => setIsLoading(false)} />
 
-      <div
-        className={`transition-opacity duration-700 ${isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
-        style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
-      >
-        <Routes>
-          <Route path="/" element={
-            <main className="w-full overflow-hidden">
-              <Hero2 />
-              <About />
-              <Skills />
-              <Projects />
-              <Certificates />
-              <Contact />
-              <Footer />
-            </main>
-          } />
-          <Route path="/projects" element={<AllProjects />} />
-          <Route path="/certificates" element={<AllCertificates />} />
-        </Routes>
-      </div>
-    </Router>
+        <div
+          className={`transition-opacity duration-700 ${isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+          style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
+        >
+          <Routes>
+            <Route path="/" element={
+              <main className="w-full overflow-hidden">
+                <Hero2 />
+                <About />
+                <Skills />
+                <Projects />
+                <Certificates />
+                <Contact />
+                <Footer />
+              </main>
+            } />
+            <Route path="/projects" element={<AllProjects />} />
+            <Route path="/certificates" element={<AllCertificates />} />
+          </Routes>
+        </div>
+      </Router>
+    </HelmetProvider>
   );
 }
 
