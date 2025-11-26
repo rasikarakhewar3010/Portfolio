@@ -12,7 +12,11 @@ import Certificates from './sections/Certificates';
 import Contact from './sections/Contact';
 import Footer from './components/Footer';
 import AllProjects from './pages/AllProjects';
+
 import AllCertificates from './pages/AllCertificates';
+
+
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -47,13 +51,14 @@ function App() {
         <ScrollToHashElement />
         <Preloader onComplete={() => setIsLoading(false)} />
 
+
         <div
           className={`transition-opacity duration-700 ${isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
           style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
         >
           <Routes>
             <Route path="/" element={
-              <main className="w-full overflow-hidden">
+              <main className="w-full overflow-hidden relative z-10">
                 <Hero2 />
                 <About />
                 <Skills />
@@ -65,8 +70,10 @@ function App() {
             } />
             <Route path="/projects" element={<AllProjects />} />
             <Route path="/certificates" element={<AllCertificates />} />
+
           </Routes>
         </div>
+
       </Router>
     </HelmetProvider>
   );
