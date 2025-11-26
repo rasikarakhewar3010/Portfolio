@@ -25,9 +25,11 @@ export const HeroParallax = ({
     return (
         <div
             ref={ref}
-            className="h-[260vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-[#fffaf5]"
+            className="h-auto md:h-[260vh] py-20 md:py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d] bg-[#fffaf5]"
         >
             <Header />
+
+            {/* Desktop View - 3D Parallax */}
             <motion.div
                 style={{
                     rotateX,
@@ -35,7 +37,7 @@ export const HeroParallax = ({
                     translateY,
                     opacity,
                 }}
-                className=""
+                className="hidden md:block"
             >
                 <motion.div className="flex flex-row-reverse space-x-reverse space-x-10 mb-10">
                     {firstRow.map((product) => (
@@ -65,13 +67,28 @@ export const HeroParallax = ({
                     ))}
                 </motion.div>
             </motion.div>
+
+            {/* Mobile View - Simple Grid */}
+            <div className="md:hidden px-4 grid grid-cols-1 gap-8 mt-8">
+                {products.slice(0, 3).map((product, idx) => (
+                    <motion.div
+                        key={product.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    >
+                        <ProductCardMobile product={product} />
+                    </motion.div>
+                ))}
+            </div>
         </div>
     );
 };
 
 export const Header = () => {
     return (
-        <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0">
+        <div className="max-w-7xl relative mx-auto py-10 md:py-40 px-4 w-full left-0 top-0">
             <h1 className="text-4xl md:text-7xl font-extrabold text-[#0f172a] opacity-100">
                 My <span className="bg-gradient-to-r from-[#f7bea7] to-[#fcd6c7] bg-clip-text text-transparent">Certifications</span>
             </h1>
@@ -114,5 +131,77 @@ export const ProductCard = ({
                 {product.title}
             </h2>
         </motion.div>
+    );
+};
+
+export const ProductCardMobile = ({
+    product,
+}) => {
+    const divRef = React.useRef(null);
+    const [isFocused, setIsFocused] = React.useState(false);
+    const [position, setPosition] = React.useState({ x: 0, y: 0 });
+    const [opacity, setOpacity] = React.useState(0);
+
+    const handleMouseMove = (e) => {
+        if (!divRef.current || isFocused) return;
+
+        const div = divRef.current;
+        const rect = div.getBoundingClientRect();
+
+        setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    };
+
+    const handleFocus = () => {
+        setIsFocused(true);
+        setOpacity(1);
+    };
+
+    const handleBlur = () => {
+        setIsFocused(false);
+        setOpacity(0);
+    };
+
+    const handleMouseEnter = () => {
+        setOpacity(1);
+    };
+
+    const handleMouseLeave = () => {
+        setOpacity(0);
+    };
+
+    return (
+        <div
+            ref={divRef}
+            onMouseMove={handleMouseMove}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="group/product h-64 w-full relative rounded-xl overflow-hidden shadow-md border border-neutral-200 dark:border-slate-800 bg-white dark:bg-slate-900"
+        >
+            <div
+                className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
+                style={{
+                    opacity,
+                    background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(247, 190, 167, 0.15), transparent 40%)`,
+                }}
+            />
+            <a
+                href={product.link}
+                className="block h-full w-full relative z-10"
+            >
+                <img
+                    src={product.thumbnail}
+                    height="600"
+                    width="600"
+                    className="object-cover object-left-top absolute h-full w-full inset-0 transition-transform duration-500 group-hover/product:scale-105"
+                    alt={product.title}
+                />
+            </a>
+            <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black transition-opacity duration-300 pointer-events-none z-20"></div>
+            <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white font-bold text-lg transition-opacity duration-300 z-30 translate-y-4 group-hover/product:translate-y-0">
+                {product.title}
+            </h2>
+        </div>
     );
 };

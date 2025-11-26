@@ -61,12 +61,14 @@ const Preloader = ({ onComplete }) => {
                     initial={{ opacity: 1 }}
                     exit={{
                         opacity: 0,
-                        scale: 0.95,
-                        filter: 'blur(10px)'
+                        scale: 1.1,
+                        filter: 'blur(20px)',
+                        y: -50,
                     }}
                     transition={{
-                        duration: 0.8,
-                        ease: [0.43, 0.13, 0.23, 0.96]
+                        duration: 1.2,
+                        ease: [0.76, 0, 0.24, 1], // Custom bezier for premium feel
+                        staggerChildren: 0.1
                     }}
                     className="fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden"
                     style={{

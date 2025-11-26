@@ -43,7 +43,7 @@ const About = () => {
                             </motion.h2>
                             <div className="h-2 w-24 bg-[#f7bea7] rounded-full mb-6 mx-auto md:mx-0" />
                             <p className="text-sm font-medium text-gray-500 uppercase tracking-widest">
-                                Developer • Designer • Mentor
+                                Developer • Designer 
                             </p>
                         </div>
 

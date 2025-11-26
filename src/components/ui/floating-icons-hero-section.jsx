@@ -3,7 +3,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
-// A single icon component with its own motion logic
+// A single icon component with premium motion logic
 const Icon = ({
     mouseX,
     mouseY,
@@ -12,34 +12,44 @@ const Icon = ({
 }) => {
     const ref = React.useRef(null);
 
-    // Motion values for the icon's position, with spring physics for smooth movement
+    // Motion values for the icon's position
     const x = useMotionValue(0);
     const y = useMotionValue(0);
-    // Softer spring for smoother, slower movement
-    const springX = useSpring(x, { stiffness: 50, damping: 20 });
-    const springY = useSpring(y, { stiffness: 50, damping: 20 });
+
+    // Spring physics for smooth magnetic effect
+    const springConfig = { stiffness: 150, damping: 15, mass: 0.1 };
+    const springX = useSpring(x, springConfig);
+    const springY = useSpring(y, springConfig);
+
+    // Random floating parameters for organic feel
+    const randomDuration = React.useMemo(() => 10 + Math.random() * 10, []);
+    const randomDelay = React.useMemo(() => Math.random() * 5, []);
+    const randomX = React.useMemo(() => (Math.random() - 0.5) * 40, []);
+    const randomY = React.useMemo(() => (Math.random() - 0.5) * 40, []);
 
     React.useEffect(() => {
         const handleMouseMove = () => {
             if (ref.current) {
                 const rect = ref.current.getBoundingClientRect();
+                const iconCenterX = rect.left + rect.width / 2;
+                const iconCenterY = rect.top + rect.height / 2;
+
                 const distance = Math.sqrt(
-                    Math.pow(mouseX.current - (rect.left + rect.width / 2), 2) +
-                    Math.pow(mouseY.current - (rect.top + rect.height / 2), 2)
+                    Math.pow(mouseX.current - iconCenterX, 2) +
+                    Math.pow(mouseY.current - iconCenterY, 2)
                 );
 
-                // If the cursor is close enough, repel the icon gently
-                if (distance < 200) {
-                    const angle = Math.atan2(
-                        mouseY.current - (rect.top + rect.height / 2),
-                        mouseX.current - (rect.left + rect.width / 2)
-                    );
-                    // Gentle repulsion force
-                    const force = (1 - distance / 200) * 30;
-                    x.set(-Math.cos(angle) * force);
-                    y.set(-Math.sin(angle) * force);
+                // Magnetic effect range
+                const triggerRange = 300;
+
+                if (distance < triggerRange) {
+                    const force = (triggerRange - distance) / triggerRange;
+                    const moveX = (mouseX.current - iconCenterX) * force * 0.8; // Magnetic pull
+                    const moveY = (mouseY.current - iconCenterY) * force * 0.8;
+
+                    x.set(moveX);
+                    y.set(moveY);
                 } else {
-                    // Return to original position when cursor is away
                     x.set(0);
                     y.set(0);
                 }
@@ -58,31 +68,50 @@ const Icon = ({
                 x: springX,
                 y: springY,
             }}
-            initial={{ opacity: 0, scale: 0.5 }}
+            initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
-                delay: index * 0.1,
-                duration: 1.2,
-                ease: "easeOut",
+                delay: index * 0.05,
+                type: "spring",
+                stiffness: 260,
+                damping: 20
             }}
-            className={cn('absolute', iconData.className)}
+            className={cn('absolute z-10', iconData.className)}
         >
-            {/* Inner wrapper for the continuous floating animation - Slower and smoother */}
+            {/* Continuous Organic Floating */}
             <motion.div
-                className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 p-3 rounded-3xl shadow-xl bg-card/80 backdrop-blur-md border border-border/10"
                 animate={{
-                    y: [0, -15, 0, 15, 0],
-                    x: [0, 10, 0, -10, 0],
-                    rotate: [0, 3, 0, -3, 0],
+                    y: [0, randomY, 0],
+                    x: [0, randomX, 0],
+                    rotate: [0, 5, -5, 0],
                 }}
                 transition={{
-                    duration: 8 + Math.random() * 4, // Slower duration (8-12s)
+                    duration: randomDuration,
                     repeat: Infinity,
                     repeatType: 'mirror',
                     ease: 'easeInOut',
+                    delay: randomDelay,
                 }}
             >
-                <iconData.icon className="w-8 h-8 md:w-10 md:h-10 text-foreground" />
+                {/* Glassmorphic Card with Hover Glow */}
+                <motion.div
+                    className="relative flex items-center justify-center w-16 h-16 md:w-20 md:h-20 p-4 rounded-3xl bg-white/40 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] group cursor-pointer overflow-hidden"
+                    whileHover={{
+                        scale: 1.2,
+                        rotate: [0, -5, 5, 0],
+                        boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                    }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                    {/* Inner Glow Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                    {/* Icon */}
+                    <iconData.icon className="w-8 h-8 md:w-10 md:h-10 text-slate-700 group-hover:text-[#f7bea7] transition-colors duration-300 relative z-10 drop-shadow-sm" />
+
+                    {/* Shine Effect */}
+                    <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/40 to-transparent z-0" />
+                </motion.div>
             </motion.div>
         </motion.div>
     );
