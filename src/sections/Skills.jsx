@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import TechMarquee from '../components/ui/TechMarquee';
 
 const skillsData = [
     {
@@ -177,7 +178,7 @@ const Skills = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="text-center mb-12"
                 >
                     <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 text-[#0f172a]">
                         Skills & <span className="text-[#f7bea7]">Tech Stack</span>
@@ -198,6 +199,11 @@ const Skills = () => {
                         />
                     ))}
                 </motion.div>
+
+                {/* Ultra-Premium Infinite Scrolling Tech Marquee Rows */}
+                <div className="mt-8">
+                    <TechMarquee />
+                </div>
             </div>
         </section>
     );

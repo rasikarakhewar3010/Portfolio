@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import FuzzyText from '../components/ui/FuzzyText';
+import ClickSpark from '../components/ui/ClickSpark';
 
 const NotFound = () => {
     return (
@@ -53,15 +54,23 @@ const NotFound = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.7 }}
                 >
-                    <Link
-                        to="/"
-                        className="inline-flex items-center justify-center px-6 py-3.5 md:px-8 md:py-4 text-base md:text-lg font-bold text-white bg-[#0f172a] rounded-full hover:bg-[#f7bea7] hover:text-[#0f172a] transition-all duration-300 shadow-xl hover:shadow-[#f7bea7]/30 transform hover:-translate-y-1 whitespace-nowrap"
+                    <ClickSpark
+                        sparkColor='#f7bea7'
+                        sparkSize={6}
+                        sparkRadius={20}
+                        sparkCount={10}
+                        duration={400}
                     >
-                        Back to Home
-                        <svg className="w-5 h-5 ml-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 12h18m-9-9l9 9-9 9" />
-                        </svg>
-                    </Link>
+                        <Link
+                            to="/"
+                            className="inline-flex items-center justify-center px-6 py-3.5 md:px-8 md:py-4 text-base md:text-lg font-bold text-white bg-[#0f172a] rounded-full hover:bg-[#f7bea7] hover:text-[#0f172a] transition-all duration-300 shadow-xl hover:shadow-[#f7bea7]/30 transform hover:-translate-y-1 whitespace-nowrap"
+                        >
+                            Back to Home
+                            <svg className="w-5 h-5 ml-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M3 12h18m-9-9l9 9-9 9" />
+                            </svg>
+                        </Link>
+                    </ClickSpark>
                 </motion.div>
             </motion.div>
         </div>

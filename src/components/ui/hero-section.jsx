@@ -7,6 +7,7 @@ import SparkleButton from './SparkleButton';
 import ContactButton from './ContactButton';
 import AnimatedLogo from '../../components/AnimatedLogo';
 import ResumeDownloadButton from '../../components/ResumeDownloadButton';
+import ClickSpark from './ClickSpark';
 
 export default function HeroSection() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -93,13 +94,13 @@ export default function HeroSection() {
                 <div className="absolute inset-0 bg-[url('https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/gridBackground.png')] bg-repeat opacity-[0.04] pointer-events-none mix-blend-multiply"></div>
 
                 {/* Navigation */}
-                <nav className="relative z-50 flex items-center justify-between p-6 md:px-16 lg:px-24 xl:px-32 w-full">
+                <nav className="relative z-50 flex items-center justify-between p-6 md:px-8 lg:px-12 w-full max-w-[100vw]">
                     <motion.a
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                         href="#"
-                        className="flex items-center"
+                        className="flex-shrink-0"
                     >
                         <AnimatedLogo />
                     </motion.a>
@@ -109,7 +110,7 @@ export default function HeroSection() {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="hidden md:flex items-center gap-10 font-medium text-gray-600"
+                        className="hidden md:flex items-center gap-6 lg:gap-10 font-medium text-gray-600"
                     >
                         {[
                             { name: 'Home', href: '/' },
@@ -142,16 +143,25 @@ export default function HeroSection() {
                         transition={{ duration: 0.8 }}
                         className="hidden md:block"
                     >
-                        <ContactButton onClick={() => {
-                            const element = document.getElementById('contact');
-                            if (element) {
-                                if (window.lenis) {
-                                    window.lenis.scrollTo(element, { duration: 2 });
-                                } else {
-                                    element.scrollIntoView({ behavior: 'smooth' });
+                        <ClickSpark
+                            sparkColor='#f7bea7'
+                            sparkSize={6}
+                            sparkRadius={20}
+                            sparkCount={10}
+                            duration={400}
+                            className="block"
+                        >
+                            <ContactButton onClick={() => {
+                                const element = document.getElementById('contact');
+                                if (element) {
+                                    if (window.lenis) {
+                                        window.lenis.scrollTo(element, { duration: 2 });
+                                    } else {
+                                        element.scrollIntoView({ behavior: 'smooth' });
+                                    }
                                 }
-                            }
-                        }} />
+                            }} />
+                        </ClickSpark>
                     </motion.div>
 
                     {/* Mobile Menu Button */}
@@ -207,12 +217,24 @@ export default function HeroSection() {
                     className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-150px)] text-center px-4 pb-10"
                 >
                     <motion.h1
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                        className="text-6xl md:text-8xl lg:text-9xl font-semibold tracking-tight text-[#0f172a] mb-8"
+                        className="text-6xl md:text-8xl lg:text-9xl font-semibold tracking-tight text-[#0f172a] mb-8 flex flex-wrap justify-center overflow-hidden"
                     >
-                        Rasika Rakhewar
+                        {"Rasika Rakhewar".split("").map((char, index) => (
+                            <motion.span
+                                key={index}
+                                initial={{ y: "100%" }}
+                                animate={{ y: 0 }}
+                                transition={{
+                                    duration: 0.8,
+                                    delay: 0.3 + index * 0.03,
+                                    ease: [0.22, 1, 0.36, 1]
+                                }}
+                                className="inline-block"
+                                style={{ whiteSpace: char === " " ? "pre" : "normal" }}
+                            >
+                                {char}
+                            </motion.span>
+                        ))}
                     </motion.h1>
 
                     <motion.p
