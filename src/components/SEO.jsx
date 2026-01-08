@@ -2,9 +2,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const SEO = ({ title, description, keywords, url }) => {
-    const siteTitle = "Rasika Rakhewar | Full-Stack Developer";
-    const defaultDescription = "Portfolio of Rasika Rakhewar, a Full-Stack MERN Developer and AI Enthusiast specializing in scalable web applications.";
-    const defaultKeywords = "Rasika Rakhewar, Full-Stack Developer, MERN Stack, React Developer, AI Engineer";
+    const siteTitle = "Rasika Rakhewar | Full-Stack Developer & AI Engineer";
+    const defaultDescription = "Rasika Rakhewar is a Full-Stack MERN Developer and AI Engineer building scalable web applications with React, Node.js, and AI/ML integrations.";
+    const defaultKeywords = "Rasika Rakhewar, Full-Stack Developer, MERN Stack, React Developer, AI Engineer, Node.js, MongoDB, Three.js";
     const siteUrl = "https://rasikarakhewar.vercel.app/";
 
     return (

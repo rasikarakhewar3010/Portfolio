@@ -56,7 +56,7 @@ const AllCertificates = () => {
     }, []);
 
     return (
-        <div className="min-h-screen w-full bg-[#fffaf5] relative overflow-hidden">
+        <main className="min-h-screen w-full bg-[#fffaf5] relative overflow-hidden">
             <SEO
                 title="Certifications"
                 description="Professional certifications and achievements of Rasika Rakhewar."
@@ -119,7 +119,7 @@ const AllCertificates = () => {
                     ))}
                 </div>
             </div>
-        </div>
+        </main>
     );
 };
 

@@ -6,13 +6,21 @@ const ScrollToHashElement = () => {
 
     useEffect(() => {
         if (location.hash) {
-            const element = document.getElementById(location.hash.substring(1));
+            const id = location.hash.substring(1);
+            const element = document.getElementById(id);
             if (element) {
-                element.scrollIntoView({ behavior: "smooth", block: "start" });
+                if (window.lenis) {
+                    window.lenis.scrollTo(element, { offset: 0, duration: 1.5 });
+                } else {
+                    element.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
             }
         } else {
-            // Optional: Scroll to top if no hash
-            // window.scrollTo(0, 0);
+            if (window.lenis) {
+                window.lenis.scrollTo(0, { duration: 1 });
+            } else {
+                window.scrollTo(0, 0);
+            }
         }
     }, [location]);
 

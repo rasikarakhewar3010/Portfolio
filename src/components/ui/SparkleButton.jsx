@@ -7,7 +7,7 @@ const SparkleButton = ({ children, onClick, className = "" }) => {
             whileHover="hover"
             whileTap="tap"
             onClick={onClick}
-            className={`relative group overflow-hidden rounded-full bg-[#0f172a] px-8 py-4 font-medium text-white shadow-lg transition-all duration-300 ${className}`}
+            className={`relative group overflow-hidden rounded-full bg-[#0f172a] px-8 py-4 font-medium text-white shadow-lg transition-all duration-300 cursor-pointer ${className}`}
         >
             {/* Background Gradient Transition */}
             <motion.div

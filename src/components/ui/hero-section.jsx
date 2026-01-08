@@ -118,8 +118,20 @@ export default function HeroSection() {
                             { name: 'Projects', href: '/projects' },
                             { name: 'Certificates', href: '/certificates' }
                         ].map((item) => (
-                            <Link key={item.name} to={item.href} className="hover:text-[#f0b383] transition-colors duration-300">
-                                {item.name}
+                            <Link
+                                key={item.name}
+                                to={item.href}
+                                className="relative group px-5 py-2 transition-all duration-300"
+                            >
+                                {/* Liquid Glass Background Pill */}
+                                <span className="absolute inset-0 bg-white/40 backdrop-blur-md rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] border border-white/40 shadow-[0_0_15px_rgba(247,190,167,0.2)]"></span>
+
+                                <span className="relative z-10 text-gray-600 font-medium transition-colors duration-300 group-hover:text-[#0f172a]">
+                                    {item.name}
+                                </span>
+
+                                {/* Tiny Dot Indicator */}
+                                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#f7bea7] rounded-full scale-0 group-hover:scale-100 transition-transform duration-500 delay-100 shadow-[0_0_5px_#f7bea7]"></span>
                             </Link>
                         ))}
                     </motion.div>
@@ -130,22 +142,44 @@ export default function HeroSection() {
                         transition={{ duration: 0.8 }}
                         className="hidden md:block"
                     >
-                        <ContactButton onClick={() => navigate('/#contact')} />
+                        <ContactButton onClick={() => {
+                            const element = document.getElementById('contact');
+                            if (element) {
+                                if (window.lenis) {
+                                    window.lenis.scrollTo(element, { duration: 2 });
+                                } else {
+                                    element.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }
+                        }} />
                     </motion.div>
 
                     {/* Mobile Menu Button */}
                     <button
-                        onClick={() => setMenuOpen(true)}
-                        className="md:hidden text-gray-800 p-2"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setMenuOpen(true);
+                        }}
+                        className="md:hidden text-gray-800 p-2 relative z-[70]"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <line x1="4" y1="12" x2="20" y2="12"></line>
+                            <line x1="4" y1="6" x2="20" y2="6"></line>
+                            <line x1="4" y1="18" x2="20" y2="18"></line>
+                        </svg>
                     </button>
                 </nav>
 
                 {/* Mobile Menu Overlay */}
-                <div className={`fixed inset-0 z-[60] bg-white/95 backdrop-blur-md transition-transform duration-500 ease-in-out ${menuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden flex flex-col items-center justify-center gap-8`}>
-                    <button onClick={() => setMenuOpen(false)} className="absolute top-6 right-6 text-gray-800">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <div
+                    onClick={(e) => e.stopPropagation()}
+                    className={`fixed inset-0 z-[100] bg-white/98 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-10'} md:hidden flex flex-col items-center justify-center gap-8`}
+                >
+                    <button
+                        onClick={() => setMenuOpen(false)}
+                        className="absolute top-8 right-8 text-gray-800 hover:rotate-90 transition-transform duration-300"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                     </button>
                     {[
                         { name: 'Home', href: '/' },
@@ -154,8 +188,14 @@ export default function HeroSection() {
                         { name: 'Projects', href: '/projects' },
                         { name: 'Certificates', href: '/certificates' },
                         { name: 'Contact', href: '/#contact' }
-                    ].map((item) => (
-                        <Link key={item.name} to={item.href} onClick={() => setMenuOpen(false)} className="text-2xl font-medium text-gray-800 hover:text-[#f0b383]">
+                    ].map((item, idx) => (
+                        <Link
+                            key={item.name}
+                            to={item.href}
+                            onClick={() => setMenuOpen(false)}
+                            className="text-3xl font-bold text-[#0f172a] hover:text-[#f7bea7] transition-all duration-300 transform hover:scale-110"
+                            style={{ transitionDelay: `${idx * 50}ms` }}
+                        >
                             {item.name}
                         </Link>
                     ))}

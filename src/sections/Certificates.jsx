@@ -10,7 +10,7 @@ const Certificates = () => {
             <HeroParallax products={certificatesData} />
             <div className="flex justify-center mt-12 relative z-10">
                 <Link to="/certificates">
-                    <AnimatedButton text="View All Certificates" />
+                    <AnimatedButton text="View All Certificates " />
                 </Link>
             </div>
         </section>

@@ -12,7 +12,7 @@ const AllProjects = () => {
     }, []);
 
     return (
-        <div className="min-h-screen w-full bg-[#fffaf5] relative">
+        <main className="min-h-screen w-full bg-[#fffaf5] relative">
             <SEO
                 title="All Projects"
                 description="Explore the complete portfolio of Rasika Rakhewar's web development and AI projects."
@@ -58,7 +58,7 @@ const AllProjects = () => {
                     ))}
                 </div>
             </div>
-        </div>
+        </main>
     );
 };
 

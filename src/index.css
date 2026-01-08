@@ -41,9 +41,17 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+html {
+  scroll-behavior: initial !important;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 :root {
-  /* scroll-behavior: smooth; - Removed for Lenis */
-  --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
@@ -117,6 +125,11 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  button, 
+  a, 
+  [role="button"] {
+    cursor: pointer;
   }
 }
 

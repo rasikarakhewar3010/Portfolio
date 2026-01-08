@@ -121,7 +121,7 @@ const Chip = ({ text, index }) => {
                 borderColor: "#0f172a"
             }}
             whileTap={{ scale: 0.95 }}
-            className="relative overflow-hidden px-4 py-2 rounded-full text-sm font-medium text-gray-700 bg-white/60 border border-white/80 shadow-sm transition-colors duration-200 cursor-default focus:outline-none focus:ring-2 focus:ring-[#f7bea7] focus:ring-offset-2"
+            className="relative overflow-hidden px-4 py-2 rounded-full text-sm font-medium text-gray-700 bg-white/60 border border-white/80 shadow-sm transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#f7bea7] focus:ring-offset-2"
             aria-label={`Skill: ${text}`}
         >
             {text}
