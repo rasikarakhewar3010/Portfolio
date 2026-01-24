@@ -34,15 +34,15 @@ const Preloader = ({ onComplete }) => {
                     clearInterval(progressInterval);
                     return 100;
                 }
-                return prev + 1.5;
+                return prev + 2;
             });
-        }, 35);
+        }, 20);
 
         const timer = setTimeout(() => {
             setIsVisible(false);
             sessionStorage.setItem('preloaderShown', 'true');
             setTimeout(() => onComplete(), 600);
-        }, 4000);
+        }, 2000);
 
         return () => {
             clearTimeout(timer);

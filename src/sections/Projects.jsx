@@ -12,7 +12,7 @@ const Projects = () => {
     return (
         <section
             id="projects"
-            className="relative w-full py-24 px-4 md:px-16 lg:px-24 xl:px-32 overflow-hidden"
+            className="relative w-full pt-10 pb-24 px-4 md:px-16 lg:px-24 xl:px-32 overflow-hidden"
             style={{ background: `linear-gradient(180deg, #fffaf5 0%, #fff5eb 100%)` }}
         >
             {/* Top Gradient Connector for Seamless Blend from Skills */}

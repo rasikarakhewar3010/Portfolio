@@ -42,7 +42,7 @@ const AnimatedLogo = () => {
             {/* GIF */}
             <motion.img
                 src="/Tulip-Animation-For-rasika.gif"
-                alt="Logo"
+                alt="Rasika Rakhewar - Full Stack Developer Portfolio Logo"
                 className="relative w-full h-full object-contain rounded-full"
                 animate={{
                     y: [0, -3, 0],

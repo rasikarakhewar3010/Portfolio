@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 
 const SEO = ({ title, description, keywords, url }) => {
     const siteTitle = "Rasika Rakhewar | Full-Stack Developer & AI Engineer";
-    const defaultDescription = "Rasika Rakhewar is a Full-Stack MERN Developer and AI Engineer building scalable web applications with React, Node.js, and AI/ML integrations.";
+    const defaultDescription = "Rasika Rakhewar is a Full-Stack MERN Developer & AI Engineer specializing in React, Node.js, & AI. Explore award-winning projects & hire an expert today.";
     const defaultKeywords = "Rasika Rakhewar, Full-Stack Developer, MERN Stack, React Developer, AI Engineer, Node.js, MongoDB, Three.js";
     const siteUrl = "https://rasikarakhewar.vercel.app/";
 

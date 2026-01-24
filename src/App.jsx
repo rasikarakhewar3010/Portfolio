@@ -17,10 +17,10 @@ import Certificates from './sections/Certificates';
 import Contact from './sections/Contact';
 import Footer from './components/Footer';
 
-// Pages
-import AllProjects from './pages/AllProjects';
-import AllCertificates from './pages/AllCertificates';
-import NotFound from './pages/NotFound';
+// Pages (Lazy Loaded for performance)
+const AllProjects = React.lazy(() => import('./pages/AllProjects'));
+const AllCertificates = React.lazy(() => import('./pages/AllCertificates'));
+const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 // Page Transition Component
 const PageWrapper = ({ children }) => (
@@ -38,14 +38,6 @@ function AppContent() {
     const location = useLocation();
     const [isLoading, setIsLoading] = useState(true);
 
-    // Safety fallback: If preloader hangs, force show content after 6 seconds
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 6000);
-        return () => clearTimeout(timer);
-    }, []);
-
     return (
         <>
             <Preloader onComplete={() => setIsLoading(false)} />
@@ -54,36 +46,38 @@ function AppContent() {
                 className={`w-full min-h-screen bg-[#fffaf5] transition-opacity duration-1000 ${isLoading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
             >
                 <AnimatePresence mode="wait">
-                    <Routes location={location} key={location.pathname}>
-                        <Route path="/" element={
-                            <PageWrapper>
-                                <main className="w-full relative z-10">
-                                    <Hero2 />
-                                    <About />
-                                    <Skills />
-                                    <Projects />
-                                    <Certificates />
-                                    <Contact />
-                                    <Footer />
-                                </main>
-                            </PageWrapper>
-                        } />
-                        <Route path="/projects" element={
-                            <PageWrapper>
-                                <AllProjects />
-                            </PageWrapper>
-                        } />
-                        <Route path="/certificates" element={
-                            <PageWrapper>
-                                <AllCertificates />
-                            </PageWrapper>
-                        } />
-                        <Route path="*" element={
-                            <PageWrapper>
-                                <NotFound />
-                            </PageWrapper>
-                        } />
-                    </Routes>
+                    <React.Suspense fallback={<div className="min-h-screen w-full bg-[#fffaf5]" />}>
+                        <Routes location={location} key={location.pathname}>
+                            <Route path="/" element={
+                                <PageWrapper>
+                                    <main className="w-full relative z-10">
+                                        <Hero2 />
+                                        <About />
+                                        <Skills />
+                                        <Projects />
+                                        <Certificates />
+                                        <Contact />
+                                        <Footer />
+                                    </main>
+                                </PageWrapper>
+                            } />
+                            <Route path="/projects" element={
+                                <PageWrapper>
+                                    <AllProjects />
+                                </PageWrapper>
+                            } />
+                            <Route path="/certificates" element={
+                                <PageWrapper>
+                                    <AllCertificates />
+                                </PageWrapper>
+                            } />
+                            <Route path="*" element={
+                                <PageWrapper>
+                                    <NotFound />
+                                </PageWrapper>
+                            } />
+                        </Routes>
+                    </React.Suspense>
                 </AnimatePresence>
             </div>
         </>

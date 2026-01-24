@@ -15,7 +15,7 @@ const About = () => {
         <section
             ref={containerRef}
             id="about"
-            className="relative w-full py-16 md:py-24 overflow-hidden"
+            className="relative w-full pt-16 pb-10 md:pt-24 md:pb-10 overflow-hidden"
             style={{
                 background: `linear-gradient(180deg, #fffaf5 0%, #ffffff 100%)`
             }}
