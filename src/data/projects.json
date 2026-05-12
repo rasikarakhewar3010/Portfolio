@@ -1,5 +1,20 @@
 [
-     {
+    {
+        "id": "jsvoice",
+        "title": "JSVoice Library",
+        "description": "A powerful JavaScript library for voice-controlled UI automation. Published on NPM with comprehensive documentation and demo website.",
+        "image": "/Project Img/jsvoice.png",
+        "tags": [
+            "JavaScript",
+            "Web Speech API",
+            "NPM",
+            "Open Source"
+        ],
+        "liveLink": "https://js-voice-website-pi.vercel.app/",
+        "githubLink": "https://github.com/VoiceUI-js/JSVoice",
+        "npmLink": "https://www.npmjs.com/package/jsvoice"
+    },
+    {
         "id": "portfolio",
         "title": "Personal Portfolio",
         "description": "A fully responsive and animated portfolio built using React, showcasing projects, skills, and achievements.",
@@ -23,7 +38,7 @@
             "MongoDB",
             "AI/ML"
         ],
-        "liveLink": "https://bloom-skin-frontend.onrender.com/",
+        "liveLink": "https://bloomskin.vercel.app/",
         "githubLink": "https://github.com/rasikarakhewar3010/Bloom-Skin"
     },
     {
@@ -41,20 +56,6 @@
         "githubLink": "https://github.com/rasikarakhewar3010/BloodLink"
     },
     {
-        "id": "jsvoice",
-        "title": "JSVoice Library",
-        "description": "Open-source voice-controlled UI automation toolkit using Web Speech API.",
-        "image": "/Project Img/jsvoice.png",
-        "tags": [
-            "JavaScript",
-            "Web Speech API",
-            "NPM"
-        ],
-        "liveLink": "https://www.npmjs.com/package/jsvoice",
-        "githubLink": "https://github.com/VoiceUI-js/JSVoice"
-    },
-
-    {
         "id": "mgm",
         "title": "MGEM Website",
         "description": "A website developed for MGEM with modern UI/UX, interactive sections, and optimized performance.",
@@ -68,9 +69,6 @@
         "liveLink": "https://mgmwebfrontend-mhu0.onrender.com/",
         "githubLink": "https://github.com/rasikarakhewar3010/MGMWEBFRONTEND"
     },
-
-
-   
     {
         "id": "hackhub",
         "title": "HackHub",

@@ -1,4 +1,5 @@
 import React from 'react';
+import emailjs from '@emailjs/browser';
 import { FloatingIconsHero } from '../components/ui/floating-icons-hero-section';
 import { Button } from '@/components/ui/button';
 import ClickSpark from '../components/ui/ClickSpark';
@@ -131,46 +132,27 @@ const demoIcons = [
 
 const Contact = () => {
     const [status, setStatus] = React.useState(""); // "", "submitting", "success", "error"
+    const formRef = React.useRef();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const form = e.target;
         setStatus("submitting");
 
-        const data = new FormData(form);
-        const jsonData = Object.fromEntries(data.entries());
-        // Map the 'subject' field to Formspree's expected '_subject' field often helps
-        jsonData._subject = "Portfolio Contact: " + (jsonData.subject || "New Inquiry");
-        // Explicitly set reply-to for better email header construction
-        jsonData._replyto = jsonData.email;
-        const json = JSON.stringify(jsonData);
-
         try {
-            const response = await fetch("https://formspree.io/f/mreblvnv", {
-                method: "POST",
-                body: json,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            });
-
-            if (response.ok) {
-                setStatus("success");
-                form.reset();
-            } else {
-                const data = await response.json();
-                if (Object.hasOwn(data, 'errors')) {
-                    setStatus("error");
-                    console.error(data["errors"].map(error => error["message"]).join(", "));
-                } else {
-                    setStatus("error");
-                }
-            }
+            await emailjs.sendForm(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                formRef.current,
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+            );
+            setStatus("success");
+            formRef.current.reset();
         } catch (error) {
+            console.error("EmailJS Error:", error);
             setStatus("error");
         }
     };
+
 
     if (status === "success") {
         return (
@@ -208,7 +190,7 @@ const Contact = () => {
                         Let&apos;s create something amazing together.
                     </p>
                 </div>
-                <form className="space-y-4" onSubmit={handleSubmit}>
+                <form ref={formRef} className="space-y-4" onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="space-y-1.5">
                             <label htmlFor="name" className="text-xs font-semibold text-gray-700 uppercase tracking-wider">Name</label>
